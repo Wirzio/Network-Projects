@@ -1,0 +1,48 @@
+DHCP, HTTP, and DNS Configuration on Local Network - LAN: 192.168.10.0/24
+I. Configure static IP on Server0 and set up DHCP:
+	a. Static IP on Server0:
+ 		1. IP: 192.168.10.1
+ 		2. Subnet Mask: 255.255.255.0
+ 		3. Default Gateway: 192.168.10.254 (for future routing configuration)
+ 		4. DNS Server: 192.168.10.2 (IP of Server1 which provides DNS service)
+
+	b. DHCP Pool Configuration:
+ 		- Start IP: 192.168.10.3
+ 		- Total Devices: 50
+ 		- Save settings
+
+II. Configure static IP on Server1:
+ 	1. IP: 192.168.10.2
+ 	2. Subnet Mask: 255.255.255.0
+ 	3. Default Gateway: 192.168.10.254 (for future routing configuration)
+ 	4. DNS Server: 192.168.10.2 (Server1 is responsible for DNS translation)
+
+III. Obtain IP from DHCP on PCs:
+ 	- PC0–PC2: Set IP to DHCP
+ 	- Test ping: PCs should be able to ping each other and both servers
+
+IV. Configure HTTP on Server0:
+ 	- Enable HTTP service under server services
+ 	- Optionally, upload .html files or use provided examples
+
+V. Test access to HTML files using Server0's IP (e.g., helloworld.html):
+ 	1. On a PC, open a web browser
+ 	2. In the URL bar, type: 192.168.10.1/helloworld.html
+ 	- If successful, a "Hello World" page with a back button will appear
+
+VI. Configure DNS on Server1:
+ 	1. Open Services on Server1
+ 	2. Enable DNS
+	3. Add a domain name, e.g., www.web-pages.com
+	4. Assign the IP of the server hosting the web pages (Server0)
+ 	5. Save
+
+VII. Test DNS resolution:
+ 	- Ping Server0 using the domain name: ping www.web-pages.com
+
+VIII. Test access to HTML files using the domain name:
+ 	1. On a PC, open a web browser
+ 	2. In the URL bar, type: www.web-pages.com/helloworld.html
+ 	- If everything is configured correctly, the "Hello World" page should be displayed
+
+✔️ Configuration Complete!
